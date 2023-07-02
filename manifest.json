@@ -1,0 +1,5 @@
+{
+  "namespace": "FarmlandsDbox",
+  "icon": "img/Farmlands.png",
+  "setup": "js/setup.mjs"
+}

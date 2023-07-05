@@ -1,7 +1,7 @@
 {
   "title": "Arriving at the farmlands...",
   "borderClass": "border-combat",
-  "startingDialogId": "0",
+  "startingDialogId": "1",
   "characters": [
     {
       "id": "Farmlands",
@@ -48,51 +48,58 @@
   ],
   "dialogs": [
     {
-      "id": "0",
+      "id": "1",
       "character": "Farmlands",
-      "text": ["You find yourself in the Farmlands, a place of simple pleasures and hard work. The fields around you are a sea of green, but as you look closer, you notice they're overrun with pesky weeds."],
+      "text": ["You find yourself in the serene Farmlands, surrounded by lush, green fields. But wait, a problem arises - the fields are overrun with pesky, infesting weeds!"],
       "options": [
         {
-          "to": "Plant",
-          "text": "Without a second thought, you roll up your sleeves and start pulling them out, one by one. (Fight Plant)",
-          "icon": "comment-alt",
+          "to": "1.1.1",
+          "text": "(Fight Plant)",
+          "icon": "cannabis",
           "lossesVerb": "Requires",
           "losses": {
             "skillCheck": [{ "id": "melvorD:Attack", "level": 1 }]
           }
         },
         {
-          "to": "2",
-          "text": "Your stomach growls, and you decide to kill a chicken for a quick meal.",
-          "isSpeech": true,
-          "icon": "comment-alt",
-          "lossesVerb": "Requires",
-          "losses": {
-            "skillCheck": [{ "id": "melvorD:Attack", "level": 1 }]
+          "to": "1.2.1",
+          "text": "Leave the weeds be and continue exploring the Farmlands.",
+          "icon": "walking"
           }
-        }
-      ]
+        ]
     },
     {
-      "id": "Plant",
+      "id": "1.1.1",
       "character": "Plant",
       "text": ["The hero will be directed to fight the Plant"],
       "options": [
         {
-          "to": "1",
+          "to": "1.1.2",
           "text": "Pull weeds!",
           "isSpeech": true
         }
       ]
     },
     {
-      "id": "1",
+      "id": "1.1.2",
       "character": "Plant",
       "text": ["0/1 Plant Killed"],
       "options": [
         {
           "to": "2",
-          "text": "Once 1/1 Plant Killed -> Your stomach growls",
+          "text": "Once 1/1 Plant Killed -> With each plant you pull, the fields seem to breathe a sigh of relief. The Junior Farmer watches from afar, a puzzled smile stretching across his sunburnt face.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "1.2.1",
+      "character": "Farmlands",
+      "text": ["Ignoring the weed-infested fields, you wander around the Farmlands."],
+      "options": [
+        {
+          "to": "2",
+          "text": "You draw the curious gaze of the Junior Farmer.",
           "isSpeech": true
         }
       ]
@@ -100,125 +107,403 @@
     {
       "id": "2",
       "character": "Chicken",
-      "text": ["And you decide to kill a chicken for a quick meal."],
+      "text": ["Suddenly, an orchestra of stomach grumbles echoes through the Farmlands, breaking the peaceful silence."],
       "options": [
         {
-          "to": "3",
+          "to": "2.1.1",
+          "text": "Satisfy your hunger by challenging a chicken for a quick meal.",
+          "icon": "drumstick-bite",
+          "lossesVerb": "Requires",
+          "losses": {
+            "skillCheck": [{ "id": "melvorD:Attack", "level": 1 }]
+        }
+        },
+        {
+          "to": "2.2.1",
+          "text": "Approach the Junior Farmer and ask for some grub.",
+          "icon": "utensils"
+        }
+      ]
+    },
+    {
+      "id": "2.1.1",
+      "character": "Chicken",
+      "text": ["It's a ridiculous chase of man versus fowl, feathers flying, and squawks echoing."],
+      "options": [
+        {
+          "to": "2.1.2",
           "text": "The hero will be directed to fight a Chicken",
           "isSpeech": true
         }
       ]
     },
     {
-      "id": "3",
+      "id": "2.1.2",
       "character": "Chicken",
       "text": ["0/1 Chicken Killed"],
       "options": [
         {
-          "to": "4",
-          "text": "Once 1/1 Chicken Killed -> The sight of you chasing a chicken around the farm is comical, but the laughter dies when the chicken does",
+          "to": "3",
+          "text": "Once 1/1 Chicken Killed -> As you claim your meal, the Junior Farmer storms over, aghast at the spectacle.",
           "isSpeech": true
         }
       ]
     },
     {
-      "id": "4",
+      "id": "2.2.1",
       "character": "Junior Farmer",
-      "text": ["The Junior Farmer, horrified, rushes to intervene, leading to a scuffle that's more of a comedic spectacle than a serious fight."],
+      "text": ["The Junior Farmer, appreciative of your help and amused by your approach, decides to put your help to better use. *Why don't you fetch us some fresh chicken for dinner?* he suggests, pointing towards the chicken pen."],
       "options": [
         {
-          "to": "5",
+          "to": "2.2.1.1",
+          "text": "Agree and head to the chicken pen.",
+          "isSpeech": true
+        },
+        {
+          "to": "2.2.1.2",
+          "text": "Decline and insist on something less... violent.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "2.2.1.1",
+      "character": "Chicken",
+      "text": ["You head towards the chicken pen, a newfound resolve in your step. The chase begins, and soon enough, you have your prize. But oh no, you got carried away and attacked more than one chicken!"],
+      "options": [
+        {
+          "to": "2.2.1.1.1",
+          "text": "The hero will be directed to fight a Chicken",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "2.2.1.1.1",
+      "character": "Chicken",
+      "text": ["0/1 Chicken Killed"],
+      "options": [
+        {
+          "to": "3",
+          "text": "Once 1/1 Chicken Killed -> The Junior Farmer runs over, horrified at the scene.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "2.2.1.2",
+      "character": "Junior Farmer",
+      "text": ["Despite your protests, the Junior Farmer insists. *It's either that or we starve!* he exclaims. With a sigh, you head towards the chicken pen and soon enough, the chase begins. But oh no, in your haste, you attack more than one chicken!"],
+      "options": [
+        {
+          "to": "2.2.1.2.1",
+          "text": "The hero will be directed to fight a Chicken",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "2.2.1.2.1",
+      "character": "Chicken",
+      "text": ["0/1 Chicken Killed"],
+      "options": [
+        {
+          "to": "3",
+          "text": "Once 1/1 Chicken Killed -> The Junior Farmer runs over, horrified at the scene.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "character": "Junior Farmer",
+      "text": ["What in Guthix's name are you doing to my chickens?!"],
+      "options": [
+        {
+          "to": "3.1.1",
+          "text": "Engage the Junior Farmer in a fight.",
+          "isSpeech": true
+        },
+        {
+          "to": "3.2.1",
+          "text": "Apologize to the Junior Farmer.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "3.1.1",
+      "character": "Junior Farmer",
+      "text": ["0/1 Junior Farmer Killed"],
+      "options": [
+        {
+          "to": "4",
+          "text": "Once 1/1 Junior Farmer Killed -> The comedic scuffle intensifies. The Adult Farmer hears the ruckus and heads over to intervene.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "3.2.1",
+      "character": "Junior Farmer",
+      "text": ["Despite your apology, the situation escalates."],
+      "options": [
+        {
+          "to": "3.2.1.1",
           "text": "The hero will be directed to fight a Junior Farmer",
           "isSpeech": true
         }
       ]
     },
     {
-      "id": "5",
+      "id": "3.2.1.1",
       "character": "Junior Farmer",
       "text": ["0/1 Junior Farmer Killed"],
       "options": [
         {
-          "to": "6",
-          "text": "Once 1/1 Junior Farmer Killed -> The Adult Farmer, hearing the commotion, steps in to break it up",
+          "to": "4",
+          "text": "Once 1/1 Junior Farmer Killed -> The Adult Farmer, hearing the commotion, intervenes, only to land right in the middle of the mess.",
           "isSpeech": true
         }
       ]
     },
     {
-      "id": "6",
+      "id": "4",
       "character": "Adult Farmer",
-      "text": ["But ends up receiving a punch from you in the confusion."],
+      "text": ["In the ensuing chaos, the Adult Farmer is caught off-guard"],
+      "options": [
+        {
+          "to": "4.1",
+          "text": "The hero will be directed to fight an Adult Farmer",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "4.1",
+      "character": "Adult Farmer",
+      "text": ["0/1 Adult Farmer Killed"],
+      "options": [
+        {
+          "to": "4.1.1",
+          "text": "Once 1/1 Junior Farmer Killed -> The Adult Farmer receives a wild punch from you!",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "4.1.1",
+      "character": "Adult Farmer",
+      "text": ["He looks at you angrily."],
+      "options": [
+        {
+          "to": "5",
+          "text": "Apologize to the Adult Farmer.",
+          "isSpeech": true
+        },
+        {
+          "to": "5",
+          "text": "Laugh at the absurdity of the situation.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "character": "Cow",
+      "text": ["For your tomfoolery, you're given the task of milking the cows."],
+      "options": [
+        {
+          "to": "5.1",
+          "text": "The hero will be directed to fight a Cow",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "5.1",
+      "character": "Cow",
+      "text": ["0/1 Cow Killed"],
+      "options": [
+        {
+          "to": "5.1.1",
+          "text": "Once 1/1 Cow Killed -> But soon, a tantalizing aroma of freshly baked bread wafts from the farmhouse's windowsill.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "5.1.1",
+      "character": "Farmlands",
+      "text": ["You are pondering the situation"],
+      "options": [
+        {
+          "to": "5.1.1.1",
+          "text": "Sneak over and steal a loaf of bread.",
+          "lossesVerb": "Requires",
+          "losses": {
+            "skillCheck": [{ "id": "melvorD:Thieving", "level": 1 }]
+          }
+        },
+        {
+          "to": "5.1.1.2",
+          "text": "Kindly ask the Adult Farmer for some bread.",
+          "isSpeech": true
+        },
+        {
+          "to": "5.1.1.3",
+          "text": "Show your discipline and ignore the tempting aroma, continuing with your task.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "5.1.1.1",
+      "character": "Farmlands",
+      "text": ["You, the stealthy adventurer, snatch a loaf of bread."],
+      "options": [
+        {
+          "to": "6",
+          "rewardsVerb": "Receive",
+          "rewards": {
+            "items": [{ "id": "melvorD:Bread", "qty": 1 }]
+          },
+          "text": "The Master Farmer notices but decides to take a different approach.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "5.1.1.2",
+      "character": "Farmlands",
+      "text": ["The Adult Farmer, moved by your polite request, shares his bread."],
+      "options": [
+        {
+          "to": "6",
+          "rewardsVerb": "Receive",
+          "rewards": {
+            "items": [{ "id": "melvorD:Bread", "qty": 1 }]
+          },
+          "text": "As you enjoy your meal, the Master Farmer approaches with a task.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "5.1.1.3",
+      "character": "Farmlands",
+      "text": ["You continue milking the cows, resisting temptation."],
+      "options": [
+        {
+          "to": "6",
+          "text": "The Master Farmer, impressed by your discipline, rewards you with a loaf of bread and proposes a task.",
+          "isSpeech": true,
+          "rewardsVerb": "Receive",
+          "rewards": {
+            "items": [{ "id": "melvorD:Bread", "qty": 1 }]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "character": "Master Farmer",
+      "text": ["I've got a task for you. Go fetch some eggs from the Chicken Coop!"],
+      "options": [
+        {
+          "to": "6.1",
+          "text": "You are stubborn and refuse to do the task. The player will be directed to fight the Master Farmer.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "6.1",
+      "character": "Master Farmer",
+      "text": ["0/1 Master Farmer Killed."],
+      "options": [
+        {
+          "to": "6.1.1",
+          "text": "Once 1/1 Master Farmer Killed -> He still convices you to listen.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "6.1.1",
+      "character": "Master Farmer",
+      "text": ["I've got a task for you. Go fetch some eggs from the Chicken Coop!"],
+      "options": [
+        {
+          "to": "6.1.1.1",
+          "text": "Agree and head to the Chicken Coop.",
+          "isSpeech": true
+        },
+        {
+          "to": "6.1.1.2",
+          "text": "Negotiate another task.",
+          "isSpeech": true
+        },
+        {
+          "to": "6.1.1.3",
+          "text": "Apologize for your previous actions.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "6.1.1.1",
+      "character": "Farmlands",
+      "text": ["With newfound purpose, you tread the path towards the Chicken Coop, the setting sun promising more adventures to come."],
       "options": [
         {
           "to": "7",
-          "text": "Punch the Adult Farmer - The hero will be directed to fight an Adult Farmer",
+          "text": "You head towards the Chicken Coop.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "6.1.1.2",
+      "character": "Master Farmer",
+      "text": ["The Master Farmer chuckles at your attempt to negotiate but insists on the Chicken Coop task. Undeterred, you march towards your new task under the painting-like sunset."],
+      "options": [
+        {
+          "to": "7",
+          "text": "You head towards the Chicken Coop.",
+          "isSpeech": true
+        }
+      ]
+    },
+    {
+      "id": "6.1.1.3",
+      "character": "Master Farmer",
+      "text": ["The Master Farmer appreciates your sincerity but insists on the task. You set off towards the Chicken Coop, your guilt a little lighter."],
+      "options": [
+        {
+          "to": "7",
+          "text": "You head towards the Chicken Coop.",
           "isSpeech": true
         }
       ]
     },
     {
       "id": "7",
-      "character": "Adult Farmer",
-      "text": ["0/1 Adult Farmer Killed"],
+      "character": "Farmlands",
+      "text": ["As you approach the Chicken Coop, your brief yet eventful adventure in the Farmlands comes to a close. As the sun dips below the horizon, you sense this is just the beginning of a grander adventure."],
       "options": [
         {
           "to": "8",
-          "text": "Once 1/1 Junior Farmer Killed -> As punishment for your actions, you're tasked with milking the cows.",
-          "isSpeech": true
+          "text": "Enter Chicken Coop Dungeon!",
+          "isSpeech": true,
+          "actions": {
+            "fireworks": true
+          }
         }
       ]
     },
     {
       "id": "8",
-      "character": "Cow",
-      "text": ["0/1 Cow Killed"],
-      "options": [
-        {
-          "to": "9",
-          "text": "Once 1/1 Cow Killed -> It's a peaceful task, and you find yourself enjoying the simple act of milking. As you work, the smell of fresh bread wafts from the farmhouse's windowsill. It's too tempting to resist. You sneak over and swipe a loaf, your mouth watering at the thought of the warm, fresh bread.",
-          "isSpeech": true
-        }
-      ]
-    },
-    {
-      "id": "9",
-      "character": "Master Farmer",
-      "text": ["But your actions don't go unnoticed. The Master Farmer, instead of scolding you, sees an opportunity."],
-      "options": [
-        {
-          "to": "10",
-          "text": "The hero will be directed to fight a Master Farmer",
-          "isSpeech": true
-        }
-      ]
-    },
-    {
-      "id": "10",
-      "character": "Master Farmer",
-      "text": ["0/1 Master Farmer Killed."],
-      "options": [
-        {
-          "to": "11",
-          "text": "Once 1/1 Master Farmer Killed -> He asks you to fetch some eggs from the Chicken Coop, perhaps as a way to make amends for the earlier incident. Feeling a bit guilty, you agree readily.",
-          "isSpeech": true
-        }
-      ]
-    },
-    {
-      "id": "11",
-      "character": "Farmlands",
-      "text": ["As you walk towards the Chicken Coop, you can't help but feel a sense of anticipation. You started the day as a mere wanderer, but now, you're an adventurer on a quest. The sun is setting, casting long shadows over the Farmlands, and you know that this is just the beginning of your journey. The Chicken Coop awaits, and with it, the promise of a new dawn and a fresh adventure."],
-      "options": [
-        {
-          "to": "12",
-          "text": "Enter Chicken Coop Dungeon!",
-          "isSpeech": true
-        }
-      ]
-    },
-    {
-      "id": "12",
       "text": [
         "Thanks for checking out dbox and this example.",
         "Now check out the API to get started creating your own rich dialog.",
@@ -226,7 +511,7 @@
       ],
       "options": [
         {
-          "to": "12",
+          "to": "8",
           "text": "Open dbox API documentation",
           "icon": "external-link-alt",
           "actions": {
@@ -234,7 +519,7 @@
           }
         },
         {
-          "to": "12",
+          "to": "8",
           "text": "Open this mod on mod.io to download and view the source code",
           "icon": "external-link-alt",
           "actions": {
@@ -242,7 +527,7 @@
           }
         },
         {
-          "to": "0",
+          "to": "1",
           "text": "Restart encounter",
           "icon": "undo"
         },

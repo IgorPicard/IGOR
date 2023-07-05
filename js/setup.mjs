@@ -47,8 +47,8 @@ export function setup(ctx) {
       ]
     }, ctx);
 
-    document.querySelector('#combat-container').firstElementChild.after(dboxByExample.root);
-
+    //document.querySelector('#combat-container').firstElementChild.after(dboxByExample.root);
+    document.querySelector('#skill-footer-minibar-quick-equip').firstElementChild.after(dboxByExample.root);
     api({ d: dboxByExample });
   });
 }
